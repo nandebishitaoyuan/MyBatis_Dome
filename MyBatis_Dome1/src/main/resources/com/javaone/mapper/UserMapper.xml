@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaone.mapper.UserMapper">
+
+<!--    int insertUser();-->
+     <insert id="insertUser">
+         insert into user values (null, 'admin', '123456')
+     </insert>
+
+<!--    int int updateUser();();-->
+    <update id="updateUser">
+    update user set name = '郝文韬' where id = 4
+    </update>
+
+<!--    int deleteUser();-->
+    <delete id="deleteUser">
+        delete from user where id = '6'
+    </delete>
+
+<!--    User getUserById();-->
+<!--    查询语句需要设置resultType或者resultMap-->
+    <select id="getUserById" resultType="User">
+        select * from user where id = 4
+    </select>
+
+<!--    List<User> getUser();-->
+    <select id="getUser" resultType="User">
+        select * from user
+    </select>
+</mapper>

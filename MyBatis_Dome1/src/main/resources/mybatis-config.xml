@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    引入properties文件-->
+    <properties resource="jdbc.properties"/>
+
+<!--    设置resultType别名，且不区分大小写-->
+    <typeAliases>
+<!--        为单独一个类设置别名，alias不写就是默认将类名作为别名-->
+<!--        <typeAlias type="com.javaone.pojo.User" alias="user"/>-->
+<!--        以包为单位设置默认别名，建议使用-->
+        <package name="com.javaone.pojo"/>
+    </typeAliases>
+
+<!--    配置连接数据库的环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+<!--    引入映射文件-->
+    <mappers>
+<!--        引入单独一个映射文件，不建议使用-->
+<!--        <mapper resource="mappers/UserMapper.xml"/>-->
+<!--        以包为单位引入映射文件，建议使用
+            要求：
+                1.mapper接口所在的包要和映射文件所在的包一致
+                2.mapper接口要和映射文件的名字一致
+-->
+        <package name="com.javaone.mapper"/>
+    </mappers>
+</configuration>
