@@ -29,4 +29,9 @@
     <select id="getUser" resultType="User">
         select * from user
     </select>
+
+<!--    User loginUser(@Param("name") String username, @Param("pwd") String password);-->
+    <select id="loginUser" resultType="User">
+        select * from user where name = #{name} and pwd = #{pwd}
+    </select>
 </mapper>

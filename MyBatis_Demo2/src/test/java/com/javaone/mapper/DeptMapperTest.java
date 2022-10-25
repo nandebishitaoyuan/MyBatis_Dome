@@ -10,4 +10,5 @@ public class DeptMapperTest {
         Dept emp = util.gatSqlSession().getMapper(DeptMapper.class).getDeptAndEmp(1);
         System.out.println(emp);
     }
+
 }

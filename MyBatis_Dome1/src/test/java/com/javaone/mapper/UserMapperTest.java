@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.List;
 
 
@@ -69,5 +68,11 @@ public class UserMapperTest {
         UserMapper mapper = DButil.gatSqlSession().getMapper(UserMapper.class);
         List<User> user = mapper.getUser();
         System.out.println(user);
+    }
+
+    @Test
+    public void testLoginUser(){
+        User user = DButil.gatSqlSession().getMapper(UserMapper.class).loginUser("sky", "123");
+        System.out.println(user != null ? "登录成功" : "登录失败");
     }
 }
