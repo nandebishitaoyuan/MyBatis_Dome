@@ -1,5 +1,6 @@
 package com.javaone.mapper;
 
+import com.javaone.DButils.DButil;
 import com.javaone.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -59,6 +60,13 @@ public class UserMapperTest {
     public void testGetUser() throws IOException {
         InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         UserMapper mapper = new SqlSessionFactoryBuilder().build(is).openSession(true).getMapper(UserMapper.class);
+        List<User> user = mapper.getUser();
+        System.out.println(user);
+    }
+
+    @Test
+    public void testGetUsers(){
+        UserMapper mapper = DButil.gatSqlSession().getMapper(UserMapper.class);
         List<User> user = mapper.getUser();
         System.out.println(user);
     }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaone.mapper.EmpMapper">
+
+    <!-- 设置自定义映射关系
+        ID：唯一表示/主键              property：实体类属性名         column：查询结果的字段名
+        result：普通字段
+    -->
+    <resultMap id="empMap" type="Emp">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="ema_name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+    </resultMap>
+    <!-- 在此添加sql -->
+
+<!--    List<Emp> gatAllEmp();-->
+    <select id="gatAllEmp" resultMap="empMap">
+        select * from t_emp
+    </select>
+
+    <select id="gatAllEmpOld" resultType="Emp">
+        select * from t_emp
+    </select>
+</mapper>
